@@ -7,6 +7,7 @@ from .sound_manager import SoundManager
 app = Flask(__name__)
 audio_init('usb')
 soundManager = SoundManager()
+soundManager.play_sound(0)
 
 
 # Initialize GPIO components.
