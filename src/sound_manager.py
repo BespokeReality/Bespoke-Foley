@@ -30,6 +30,20 @@ class SoundManager:
 
         return sound_files
 
+    def detect_new_sounds(self):
+        """
+        Detect and load any new sound files added to the sounds directory.
+        """
+        current_sounds = set(self.sounds)
+        all_sounds = set(self.load_sounds())
+        new_sounds = all_sounds - current_sounds
+
+        if new_sounds:
+            self.sounds.extend(new_sounds)
+            print(f"New sounds detected and loaded: {new_sounds}")
+        else:
+            print("No new sounds detected.")
+
     def play_sound(self, index: int = 0):
         """
         Play a sound by index from the loaded sounds.
@@ -47,6 +61,7 @@ class SoundManager:
         pygame.mixer.music.load(sound_file)
         pygame.mixer.music.play()
         print(f"Playing sound: {sound_file}")
+        self.detect_new_sounds()
 
     def play_random_sound(self):
         """
@@ -58,6 +73,7 @@ class SoundManager:
 
         random_index = random.randint(0, len(self.sounds) - 1)
         self.play_sound(random_index)
+        self.detect_new_sounds()
 
     def play_next_sound(self):
         """
@@ -69,6 +85,7 @@ class SoundManager:
 
         self.play_sound(self.current_index)
         self.current_index = (self.current_index + 1) % len(self.sounds)
+        self.detect_new_sounds()
 
     def stop_sound(self):
         """
