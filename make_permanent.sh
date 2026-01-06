@@ -11,8 +11,8 @@ echo "Service location set to: $SERVICE_LOCATION"
 
 sudo ln -s $SERVICE_LOCATION /etc/systemd/system/$SERVICE_NAME
 sudo systemctl daemon-reload
-sudo systemctl enable bespoke-reality.service
-sudo systemctl start bespoke-reality.service
-sudo systemctl status bespoke-reality.service
+sudo systemctl enable $SERVICE_NAME
+sudo systemctl start $SERVICE_NAME
+sudo systemctl status $SERVICE_NAME
 
 echo "Bespoke Reality service has been made permanent and started."
