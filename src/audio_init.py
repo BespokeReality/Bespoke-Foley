@@ -2,7 +2,7 @@ import os
 import pygame
 
 
-def audio_init(device_name: str = 'None') -> None:
+def audio_init(device_name: str = None) -> None:
     """
     Initialize the audio device for pygame mixer.
     This is especially important when running as a service on a pi.
