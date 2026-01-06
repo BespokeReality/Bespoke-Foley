@@ -9,7 +9,7 @@ class SoundManager:
         self.sounds = self.load_sounds()
         self.current_index = 0
 
-    def load_sounds(self):
+    def load_sounds(self, initial_load: bool = False) -> list:
         """
         Load all sound files from the specified directory.
         :return: List of sound file paths.
@@ -23,7 +23,8 @@ class SoundManager:
         sound_files = [os.path.join(self.sounds_directory, sound) for sound in sounds]
 
         if sound_files:
-            print(f"Loaded sound files: {sound_files}")
+            if initial_load:
+                print(f"Loaded sound files: {sound_files}")
         else:
             print("No sound files found in the sounds directory.")
             raise FileNotFoundError("No sound files found in the sounds directory.")
