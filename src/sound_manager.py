@@ -8,6 +8,7 @@ class SoundManager:
         self.sounds_directory = sounds_directory
         self.sounds = self.load_sounds()
         self.current_index = 0
+        self.last_played_sound = None
 
     def load_sounds(self, initial_load: bool = False) -> list:
         """
@@ -71,6 +72,9 @@ class SoundManager:
             return
 
         random_index = random.randint(0, len(self.sounds) - 1)
+        if self.last_played_sound == random_index and len(self.sounds) > 1:
+            random_index = (random_index + 1) % len(self.sounds)
+        self.last_played_sound = random_index
         self.play_sound(random_index)
         self.detect_new_sounds()
 
