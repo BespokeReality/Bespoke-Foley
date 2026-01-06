@@ -42,8 +42,6 @@ class SoundManager:
         if new_sounds:
             self.sounds.extend(new_sounds)
             print(f"New sounds detected and loaded: {new_sounds}")
-        else:
-            print("No new sounds detected.")
 
     def play_sound(self, index: int = 0):
         """
