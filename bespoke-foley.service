@@ -1,0 +1,16 @@
+[Unit]
+Description=Bespoke Reality Server
+After=network.target
+
+[Service]
+Type=simple
+User=lodomo
+WorkingDirectory=/home/lodomo/Server-Template
+ExecStart=/home/lodomo/Server-Template/launch.sh
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
