@@ -5,7 +5,7 @@ from .audio_init import audio_init
 from .sound_manager import SoundManager
 
 app = Flask(__name__)
-audio_init()
+audio_init('usb')
 soundManager = SoundManager()
 
 
