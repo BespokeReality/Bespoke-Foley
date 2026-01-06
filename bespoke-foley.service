@@ -6,8 +6,8 @@ After=network.target
 Type=oneshot
 RemainAfterExit=yes
 User=lodomo
-WorkingDirectory=/home/lodomo/Foley-Server
-ExecStart=/home/lodomo/Foley-Server/launch.sh
+WorkingDirectory=/home/lodomo/Bespoke-Foley
+ExecStart=/home/lodomo/Bespoke-Foley/launch.sh
 
 [Install]
 WantedBy=multi-user.target
